@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+{%extends 'base.html'%}  {%block content%}   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student page</title>
+    <!-- Link to Animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    
+    <style>
+      /* Additional custom styles */
+      .animated-element {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        border-radius: 90px;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+      }
+
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      .center {
+        display: flex;
+        justify-content: center;
+    }
+    </style>
+  </head>
+  <body>
+    <table class="animate__animated animate__fadeIn animated-element">
+      <tr>
+        <th>Field</th>
+        <th>Details</th>
+      </tr>
+      <tr>
+        <td>Student Name:</td>
+        <td>{{ student.first_name }} {{student.last_name }}</td>
+      </tr>
+      <tr>
+        <td>EmailId :</td>
+        <td>{{student.email_id }}</td>
+      </tr>
+      <tr>
+        <td>PhoneNumber:</td>
+        <td>{{student.phone_number }}</td>
+      </tr>
+      <tr>
+        <td>Gender:</td>
+        <td>{{student.student_gender }}</td>
+      </tr>
+      <tr>
+        <td>Address:</td>
+        <td>{{student.student_address }}</td>
+      </tr>
+      <tr>
+        <td>Departments:</td>
+        <td>
+            {% for department in student.student_department.all %}
+            <p>{{ department}}</p>
+            {% endfor %}
+        </td>
+      </tr>
+      <tr>
+        <td>Date of Birth:</td>
+        <td>{{student.date_of_birth}}</td>
+      </tr>
+    </table>
+    <div class="center">
+        <a class="btn btn-success text-center" href="{% url 'home' %}">Back to Home</a>
+    </div>
+  </body>
+  {%endblock%}
+
+</html>

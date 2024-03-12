@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- Include necessary CSS files for Bootstrap and animations -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    {% extends 'base.html'%} 
+    {% block content %}
+    <div class="container">
+        <h1 class="text-center">Student Details from Database !</h1>
+        <hr>
+        <br>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">First Name</th>
+                    <th class="text-center">Last Name</th>
+                    <th class="text-center">Address</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr class="animate__animated animate__fadeIn">
+                    <td class="text-center">{{ student.id }}</td>
+                    <td class="text-center">{{ student.first_name }}</td>
+                    <td class="text-center">{{ student.last_name }}</td>
+                    <td class="text-center">{{ student.student_address }}</td>
+                    <td class="text-center"><a class="btn btn-warning" href="{% url 'student' student.id %}">Click Here !!</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}
+</body>
+</html>
