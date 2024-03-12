@@ -1,5 +1,5 @@
 <h3>Home.html</h3>
-![Screenshot 2024-03-12 230446](https://github.com/karthikeyaguruju/First-Django-Project/assets/109730373/bacccbee-52f2-403c-b436-5789d31ac7a9)
+<img src="https://github.com/karthikeyaguruju/First-Django-Project/assets/109730373/bacccbee-52f2-403c-b436-5789d31ac7a9"/>
 
 <hr>
 <h3>Student.html</h3>
